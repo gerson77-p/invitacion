@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Formal</title>
+    <style>
+        /* RESET BÁSICO */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d0d0d; /* Negro profundo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Georgia', serif;
+            color: #c5a059; /* Dorado mate */
+            padding: 20px;
+        }
+
+        /* TARJETA PRINCIPAL */
+        .card {
+            background-color: #161616;
+            width: 100%;
+            max-width: 400px;
+            padding: 50px 30px;
+            text-align: center;
+            border: 1px solid #c5a059;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 10px rgba(197, 160, 89, 0.2);
+            position: relative;
+            transition: all 1s ease;
+        }
+
+        /* ESQUINAS DECORATIVAS */
+        .corner {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #c5a059;
+        }
+        .top-left { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+        .top-right { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+        .bottom-left { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+        .bottom-right { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+        /* TEXTOS */
+        .ornament {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.6em;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: normal;
+            margin-bottom: 30px;
+        }
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            background-color: #c5a059;
+            margin: 20px auto;
+        }
+
+        .content-text {
+            color: #ffffff;
+            font-style: italic;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            font-weight: bold;
+            font-style: normal;
+            color: #c5a059;
+            display: block;
+        }
+
+        /* BOTÓN ELEGANTE */
+        .btn-accept {
+            background: transparent;
+            color: #c5a059;
+            border: 1px solid #c5a059;
+            padding: 15px 35px;
+            font-family: 'Georgia', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-accept:hover {
+            background-color: #c5a059;
+            color: #161616;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.5);
+        }
+
+        /* MENSAJE DE ÉXITO (Oculto al inicio) */
+        #success-content {
+            display: none;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2.5em;
+            color: #c5a059;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card" id="main-card">
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+
+        <div id="invite-content">
+            <span class="ornament">❦</span>
+            <h1>Invitación</h1>
+            <div class="divider"></div>
+            
+            <p class="content-text">
+                "Hay momentos que se vuelven invaluables por la persona con quien decidimos compartirlos."
+            </p>
+            
+            <span class="question">¿Me concederías el honor de ser mi Valentín?</span>
+
+            <button class="btn-accept" onclick="acceptInvite()">Aceptar Invitación</button>
+        </div>
+
+        <div id="success-content">
+            <span class="ornament">✨</span>
+            <h1>Confirmado</h1>
+            <div class="divider"></div>
+            <p class="content-text">
+                Será un honor compartir este día contigo. <br>
+                Nos vemos pronto.
+            </p>
+            <div class="signature">Gerson</div>
+        </div>
+    </div>
+
+    <script>
+        function acceptInvite() {
+            // Ocultar invitación
+            document.getElementById('invite-content').style.display = 'none';
+            
+            // Mostrar mensaje de éxito
+            const success = document.getElementById('success-content');
+            success.style.display = 'block';
+
+            // Opcional: Pequeña animación de brillo en la tarjeta
+            document.getElementById('main-card').style.boxShadow = "0 0 60px rgba(197, 160, 89, 0.4)";
+        }
+    </script>
+
+</body>
+</html>
